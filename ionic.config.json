@@ -1,0 +1,7 @@
+{
+  "name": "To-Job",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
