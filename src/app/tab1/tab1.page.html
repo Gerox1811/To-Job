@@ -4,10 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" scrollY="true" (ionScroll)="onScroll()">
-  <div class="video-list">
-    <div #videoContainer class="video-container" *ngFor="let video of videos">
-      <video controls width="100%" height="100%" poster="{{ video.thumbnail }}" autoplay>
+<ion-content [fullscreen]="true" scrollY="true">
+  <div class="video-list" #videoContainer>
+    <div *ngFor="let video of videos" class="video-container">
+      <video #videoPlayer width="100%" height="100%" poster="{{ video.thumbnail }}" (click)="togglePlayPause(videoPlayer)" (ended)="restartVideo(videoPlayer)" (timeupdate)="checkLastVideo(videoPlayer)">
         <source [src]="video.videoURL" type="video/mp4">
         Tu navegador no soporta el tag de video.
       </video>
@@ -17,6 +17,8 @@
     </div>
   </div>
 </ion-content>
+
+
 
 
 
